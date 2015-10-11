@@ -29,6 +29,8 @@ if __name__ == '__main__':
         url_segments = repo_url.split("github.com/")
         path = url_segments[1]
         user, repo = path.split("/")
+        repo = repo.split(".git")
+        repo = repo[0]
 
         print("Checking the fork's parent url...", "\n")
         url = "https://api.github.com/repos/{}/{}".format(user, repo)
