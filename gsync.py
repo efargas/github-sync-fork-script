@@ -92,11 +92,14 @@ if __name__ == '__main__':
 				hasattr(e, 'cmd') and
 				e.cmd == CURRENT_REPO_CMD):
 				print("Are you sure you are on the git repo folder?", "\n")
-			elif (e_type == 'IndexError' and e.message == 'list index out of range'):
+			elif (e_type == 'IndexError' and
+				e.message == 'list index out of range'):
 				print("Sorry, couldn't get the user and repo names from the Git config.", "\n")
-			elif (e_type == 'KeyError' and	e.message == 'parent'):
+			elif (e_type == 'KeyError' and
+				e.message == 'parent'):
 				print("Are you sure the repo is a fork?")
-			elif (e_type == 'CalledProcessError' and (e.cmd == MERGE_UPSTREAM_CMD or e.cmd == CHECKOUT_MASTER_CMD)):
+			elif (e_type == 'CalledProcessError' and
+				(e.cmd == MERGE_UPSTREAM_CMD or e.cmd == CHECKOUT_MASTER_CMD)):
 				print("Didn't merge. Reason:", e.output)
 		else:
 			print("Only Numbers please")
